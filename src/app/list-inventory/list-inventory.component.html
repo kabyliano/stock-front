@@ -1,0 +1,37 @@
+<div class="vertical-menu">
+  <button class="dropdown-item" href="javascript:void(0)" (click)="addInventory()">Ajouter</button>
+</div>
+
+<div class="container">
+  <h2 *ngIf="loginuser.user.role=='USER'">5 derniers inventaires</h2>
+  <h2 *ngIf="loginuser.user.role=='ADMIN'">Liste des inventaires</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+
+          <thead>
+            <th>Numéro</th>
+            <th>Date</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+          </thead>
+
+          <tbody *ngIf="inventories">
+            <tr *ngFor="let inventory of inventories| slice: pageSize | slice: 0:itemsPerPage">
+              <td>{{ inventory.num_inventory }}</td>
+              <td>{{ inventory.date_inventory| date:'medium' }}</td>
+
+              <td *ngIf="inventory.close"><button class="btn btn-outline-success btn-xs" (click)="edit(inventory)">Modifer</button></td>
+              <td *ngIf="!inventory.close"><button class="btn btn-outline-secondary btn-xs" (click)="show(inventory)"> Afficher </button></td>
+
+              <td><button class="btn btn-outline-danger btn-xs" (click)="delete(inventory)">Supprimer</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <ngb-pagination [collectionSize]="inventories.length" #numPages [pageSize]="itemsPerPage" [(page)]="currentPage" (pageChange)="onPageChange(currentPage)"></ngb-pagination>
+
+      </div>
+    </div>
+  </div>
+</div>

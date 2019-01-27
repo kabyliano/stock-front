@@ -1,0 +1,22 @@
+<div>
+  <app-navbar></app-navbar>
+  <div>
+    <ngb-tabset>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Inventaires</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-list-inventory></app-list-inventory>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle><b>Mon profil</b></ng-template>
+        <ng-template ngbTabContent>
+          <app-edit-profile></app-edit-profile>
+        </ng-template>
+      </ngb-tab>
+      
+    </ngb-tabset>
+  </div>
+</div>

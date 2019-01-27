@@ -1,0 +1,40 @@
+<div class="vertical-menu">
+  <button class="dropdown-item" href="javascript:void(0)" (click)="addUser()">Ajouter</button>
+  <button class="dropdown-item" href="javascript:void(0)" (click)="printUsers()">Imprimer</button>
+  <button class="dropdown-item" href="javascript:void(0)" (click)="printUsersAsPdf()">Imprimer le PDF</button>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="table-responsive">
+
+					<table id="mytable" class="table table-bordred table-striped">
+						<thead>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>E-mail</th>
+							<th>N° de téléphone</th>
+							<th>Rôle</th>
+<!--							<th>Modifier</th> -->
+							<th>Supprimer</th>
+						</thead>
+
+						<tbody *ngIf="users">
+							<tr *ngFor="let user of users| slice: pageSize | slice: 0:itemsPerPage">
+								<td>{{ user.lastName }}</td>
+								<td>{{ user.firstName }}</td>
+								<td>{{ user.email }}</td>
+								<td>{{ user.phoneNumber }}</td>
+								<td>{{ user.role }}</td>
+<!--								<td><button class="btn btn-outline-success btn-xs" (click)="edit(user)">Modifer</button></td> -->
+								<td><button class="btn btn-outline-danger btn-xs" (click)="delete(user)">Supprimer</button></td>
+							</tr>
+					</tbody>
+				</table>
+				<ngb-pagination [collectionSize]="users.length" #numPages [pageSize]="itemsPerPage" [(page)]="currentPage" (pageChange)="onPageChange(currentPage)"></ngb-pagination>
+
+			</div>
+		</div>
+	</div>
+</div>

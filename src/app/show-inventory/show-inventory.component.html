@@ -1,0 +1,38 @@
+<header>
+  <button class="btn btn-light" (click)="backToInventories()">Retour à la liste des inventaires</button>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th>Code produit</th>
+            <th>​Designation</th>
+            <th>Catégorie</th>
+            <th>​prix unitaire HT</th>
+            <th>État du stock</th>
+            <th>Quantité</th>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let product of inventory.produits">
+              <td>{{product.key.codeProduct}}</td>
+              <td>{{product.key.designation}}</td>
+              <td>{{product.key.category}}</td>
+              <td>{{product.key.prixUnitaireHT}}</td>
+              <td *ngIf="product.value > 0">
+                <fa name="check"></fa>
+              </td>
+              <td *ngIf="product.value == 0">
+                <fa name="exclamation-triangle"></fa>
+              </td>
+              <td>{{product.value}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

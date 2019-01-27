@@ -1,0 +1,45 @@
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter un utilisateur</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #userForm="ngForm">
+      <div class="container">
+        <label for="familyname"><b>Nom</b></label>
+        <input type="text" placeholder="Tapez votre nom" [(ngModel)]="user.lastName" name="familyname" required>
+
+        <label for="firstname"><b>Prénom</b></label>
+        <input type="text" placeholder="Tapez votre prénom" [(ngModel)]="user.firstName" name="firstname" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Tapez votre Email" [(ngModel)]="user.email" name="email" required>
+
+        <label for="phone"><b>Numéro de téléphone</b></label>
+        <input type="text" placeholder="Tapez votre numéro de téléphone" [(ngModel)]="user.phoneNumber" name="phone" required>
+
+        <label for="role"><b>Rôle</b></label>
+        <select type="role" [(ngModel)]="user.role" name="role" id="role">
+          <option value="">Selectionnez le rôle</option>
+          <option value="ADMIN">Administrateur</option>
+          <option value="USER">Utilisateur</option>
+        </select>
+
+        <label for="psw"><b>Mot de passe</b></label>
+        <input type="password" placeholder="Tapez le mot de passe" [(ngModel)]="user.password" name="psw" required>
+
+        <label for="psw-repeat"><b>Confirmer</b></label>
+        <input type="password" placeholder="Retapez le mot de passe" name="psw-repeat" required>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="clearfix">
+      <button type="button" class="cancelbtn" (click)="activeModal.close('Close click')">Annuler</button>
+      <button type="submit" class="signupbtn" (click)="saveUser(user,userForm)">Sauvegarder</button>
+    </div>
+  </div>

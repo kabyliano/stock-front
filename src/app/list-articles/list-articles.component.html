@@ -1,0 +1,46 @@
+<div class="vertical-menu">
+  <button class="dropdown-item" href="javascript:void(0)" (click)="addArticle()">Ajouter</button>
+
+  <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+    <button class="dropdown-item" ngbDropdownToggle>Imprimer</button>
+    <div class="dropdown-menu" ngbDropdownMenu>
+      <button class="dropdown-item" href="javascript:void(0)" (click)="printArticlesAsCSV()">CSV</button>
+      <button class="dropdown-item" href="javascript:void(0)" (click)="printArticlesAsJSON()">JSON</button>
+      <button class="dropdown-item" href="javascript:void(0)" (click)="printArticlesAsPdf()">PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+
+          <thead>
+            <th>Code</th>
+            <th>Désignation</th>
+            <th>Prix unitaire HT</th>
+            <th>Catégorie</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+          </thead>
+
+          <tbody *ngIf="articles">
+            <tr *ngFor="let article of articles| slice: pageSize | slice: 0:itemsPerPage">
+              <td>{{ article.codeProduct }}</td>
+              <td>{{ article.designation }}</td>
+              <td>{{ article.prixUnitaireHT }}</td>
+              <td>{{ article.category }}</td>
+
+              <td><button class="btn btn-outline-success btn-xs" (click)="edit(article)">Modifer</button></td>
+              <td><button class="btn btn-outline-danger btn-xs" (click)="delete(article)">Supprimer</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <ngb-pagination [collectionSize]="articles.length" #numPages [pageSize]="itemsPerPage" [(page)]="currentPage" (pageChange)="onPageChange(currentPage)"></ngb-pagination>
+
+      </div>
+    </div>
+  </div>
+</div>

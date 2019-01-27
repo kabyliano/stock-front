@@ -1,0 +1,32 @@
+<div>
+<app-navbar></app-navbar>
+ <ngb-tabset>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Articles </b><fa name="cubes"></fa></ng-template>
+    <ng-template ngbTabContent>
+      <app-list-articles></app-list-articles>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Inventaires </b><fa name="align-justify"></fa></ng-template>
+    <ng-template ngbTabContent>
+      <app-list-inventory></app-list-inventory>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Utilisateurs </b><fa name="users"></fa></ng-template>
+    <ng-template ngbTabContent>
+      <app-list-users></app-list-users>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab>
+    <ng-template ngbTabTitle><b>Mon profil </b><fa name="user"></fa></ng-template>
+    <ng-template ngbTabContent>
+      <app-edit-profile></app-edit-profile>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+</div>

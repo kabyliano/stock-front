@@ -1,0 +1,28 @@
+
+<form #userForm="ngForm"  novalidate>
+
+  <div class="container">
+    <label for="familyname"><b>Nom</b></label>
+    <input type="text" [(ngModel)]="user.lastName" name="familyname" required>
+
+    <label for="firstname"><b>Prénom</b></label>
+    <input type="text" [(ngModel)]="user.firstName" name="firstname" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" votre Email [(ngModel)]="user.email" name="email" required>
+
+    <label for="phone"><b>Numéro de téléphone</b></label>
+    <input type="text"  [(ngModel)]="user.phoneNumber" name="phone" required>
+
+    <label for="psw"><b>Mot de passe</b></label>
+    <input type="password" placeholder="Tapez le mot de passe" [(ngModel)]="user.password" name="psw" required>
+
+    <label for="psw-repeat"><b>Confirmer</b></label>
+    <input type="password" placeholder="Retapez le mot de passe" name="psw-repeat" required>
+  </div>
+
+  <div class="container">
+    <button class="btn btn-lg btn-primary btn-block loginbtn" type="submit" (click)="editUser(user,userForm)">Sauvegarder</button>
+  </div>
+
+</form>

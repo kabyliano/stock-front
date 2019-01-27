@@ -1,0 +1,36 @@
+<div class="container">
+  <span class="text1">Bienvenue sur l'application de gestion d'inventaires</span>
+  <span class="text2">
+    <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && loginUser(user)" class=" form-signin" novalidate>
+
+      <div class="container">
+        <img class="mb-4" src="assets/entrepot.png" alt="" width="206" height="206">
+        <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+        <label for="email" class="sr-only">Introduisez vos identifiants.</label>
+
+        <div class="form-group">
+          <input type="email" id="inputEmail" class="form-control" #email="ngModel" placeholder="Email address" name="email" [(ngModel)]="user.email" [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }" required email autofocus>
+          <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors.required">Email est requis</div>
+            <div *ngIf="email.errors.email">l'adresse email doit être valide</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="psw" [(ngModel)]="user.password" #password="ngModel" [ngClass]="{ 'is-invalid': userForm.submitted && password.invalid }" required minlength="8"
+            ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" />
+          <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors.required">Le mot de passe est requis</div>
+            <div *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 8 caractères</div>
+            <p ng-show="validationError">email ou mot de passe incorrect</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+
+        <button class="btn btn-lg btn-primary btn-block loginbtn" type="submit" (click)="loginUser(user)">Se connecter</button>
+      </div>
+    </form>
+  </span>
+</div>

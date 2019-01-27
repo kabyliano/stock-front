@@ -1,0 +1,35 @@
+.vertical-menu {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  background-color: #ffe3b2;
+}
+
+.vertical-menu button {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  background-color: #ffe3b2;
+}
+
+.vertical-menu button:hover {
+  background-color: #ffe3b2;
+}
+.dropdown-menu{
+  width: 160px !important;
+}
+
+.vertical-menu button.active {
+  background-color: #ffe3b2;
+  color: white;
+}
+
+.container {
+  width: auto;
+  margin-left: 25%;
+}
