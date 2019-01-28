@@ -34,7 +34,7 @@ export class ArticleService {
   }
 
   deleteArticle(article: any, token: any): Observable<any> {
-    const headers = new HttpHeaders({' Authorization': 'Bearer ' + token });
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer ' + token });
     return this.http.delete(ArticleService.API_URL + "product/delete/" + article.idProduct, { headers: headers });
   }
 
